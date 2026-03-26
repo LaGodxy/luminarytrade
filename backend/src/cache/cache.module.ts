@@ -5,6 +5,12 @@ import { CacheInvalidator } from './cache-invalidator.service';
 import { CacheMetricsService } from './cache-metrics.service';
 import { CacheController } from './cache.controller';
 
+// Multi-level cache services
+import { L1CacheService } from './l1-cache.service';
+import { L2CacheService } from './l2-cache.service';
+import { MultiLevelCacheService } from './multi-level-cache.service';
+import { CacheStatsService } from './cache-stats.service';
+
 @Global()
 @Module({
   imports: [
@@ -15,7 +21,29 @@ import { CacheController } from './cache.controller';
     }),
   ],
   controllers: [CacheController],
-  providers: [CacheManager, CacheInvalidator, CacheMetricsService],
-  exports: [CacheManager, CacheInvalidator, CacheMetricsService],
+  providers: [
+    // Standard cache services
+    CacheManager, 
+    CacheInvalidator, 
+    CacheMetricsService,
+    
+    // Multi-level cache services
+    L1CacheService,
+    L2CacheService,
+    MultiLevelCacheService,
+    CacheStatsService,
+  ],
+  exports: [
+    // Standard cache services
+    CacheManager, 
+    CacheInvalidator, 
+    CacheMetricsService,
+    
+    // Multi-level cache services
+    L1CacheService,
+    L2CacheService,
+    MultiLevelCacheService,
+    CacheStatsService,
+  ],
 })
 export class CacheModule {}
