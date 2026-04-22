@@ -32,6 +32,7 @@ import { AnalyticsModule } from './analytics/analytics.module';
 import { MetricsModule } from './metrics/metrics.module';
 import { LoggingModule } from './logging/logging.module';
 import { AlertingModule } from './alerting/alerting.module';
+import { GrowthModule } from './growth/growth.module';
 
 // i18n
 import { I18nModule } from './i18n/i18n.module';
@@ -87,6 +88,7 @@ import { GlobalExceptionFilter } from './common/filters/global-exception.filter'
     DecoratorCompositionModule,
     GraphqlApiModule,
     AnalyticsModule,
+    GrowthModule,
   ],
   providers: [
     AppConfigService,
